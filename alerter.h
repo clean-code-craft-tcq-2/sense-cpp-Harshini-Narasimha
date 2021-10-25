@@ -43,13 +43,13 @@ class StatsAlerter
       Statistics::Stats statsResult = Statistics::ComputeStatistics(sensorValues);
       if(statsResult.max > maxThreshold)
       {
-          alerters[0]->sendAlert(true);
-          alerters[1]->sendAlert(true);
-          /*std::vector<IAlerter*>::iterator itAlerts;
+          //alerters[0]->sendAlert(true);
+          //alerters[1]->sendAlert(true);
+          std::vector<IAlerter*>::iterator itAlerts;
           for (itAlerts = alerters.begin(); itAlerts != alerters.end(); itAlerts++)
           {
-	      itAlerts->sendAlert(true);  
-          }*/
+	      *itAlerts->sendAlert(true);  
+          }
       }
    }
    float maxThreshold;
