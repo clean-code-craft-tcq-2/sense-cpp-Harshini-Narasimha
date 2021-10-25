@@ -48,7 +48,7 @@ class StatsAlerter
           std::vector<IAlerter*>::iterator itAlerts;
           for (itAlerts = alerters.begin(); itAlerts != alerters.end(); itAlerts++)
           {
-	      *itAlerts->sendAlert(true);  
+	      (*itAlerts)->sendAlert(true);  
           }
       }
    }
