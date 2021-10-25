@@ -41,10 +41,9 @@ class StatsAlerter
    void checkAndAlert(const std::vector<float>& sensorValues)
    {
       Statistics::Stats statsResult = Statistics::ComputeStatistics(sensorValues);
+      //send alert if the maximum value recieved from sensor is greater than threshold value
       if(statsResult.max > maxThreshold)
       {
-          //alerters[0]->sendAlert(true);
-          //alerters[1]->sendAlert(true);
           std::vector<IAlerter*>::iterator itAlerts;
           for (itAlerts = alerters.begin(); itAlerts != alerters.end(); itAlerts++)
           {
@@ -52,6 +51,8 @@ class StatsAlerter
           }
       }
    }
+  
+   //member variable
    float maxThreshold;
    std::vector<IAlerter*> alerters;
 };
